@@ -6,6 +6,10 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
 
 public class Tux {
@@ -14,7 +18,7 @@ public class Tux {
 
     public static void main(String[] args) {
         try {
-            jda = JDABuilder.createDefault("OTI1Mzc3NDEwNDU3ODIxMjE3.YcsO3w._wHwCWUAZxswlllFvXLB9555NiQ").build(); // TODO token from json here
+            jda = JDABuilder.createDefault(getToken()).build();
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
@@ -23,5 +27,17 @@ public class Tux {
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);
 
         jda.addEventListener(new CommandsListener());
+    }
+
+    private static String getToken() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("token"));
+            return reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Token error...");
+        System.exit(1);
+        return null;
     }
 }

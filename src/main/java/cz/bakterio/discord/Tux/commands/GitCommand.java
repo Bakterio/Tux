@@ -35,7 +35,6 @@ public class GitCommand extends Command{
                 Do you want to resend this message via pms? (for better remembering)
                 """.formatted(MESSAGE)).queue();
 
-        e.getChannel().messa
     }
 
     private static final String MESSAGE = """
