@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id'application'
+    id'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+group 'cz.bakterio'
+version '1.0-SNAPSHOT'
+
+mainClassName = 'cz.bakterio.discord.Tux.Tux';
+
+version '1.0'
+
+repositories {
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'net.dv8tion', name: 'JDA', version: '4.3.0_305'
+    implementation group: 'com.jagrosh', name: 'jda-utilities', version: '3.0.5'
+    implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
