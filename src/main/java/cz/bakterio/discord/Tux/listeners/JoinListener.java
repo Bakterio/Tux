@@ -13,7 +13,7 @@ public class JoinListener extends ListenerAdapter {
                 
                 My prefix is **sudo**, for help type **sudo help** :smile:.
                 
-                Find bug or missing feature? Feel free to join our GitHub: github.com/bakterio/Tux
-                """).queue(); // TODO add here actual gh link
+                Find bug or missing feature? Feel free to join our GitHub: https://github.com/Bakterio/Tux
+                """).queue();
     }
 }

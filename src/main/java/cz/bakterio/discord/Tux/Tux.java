@@ -1,6 +1,8 @@
 package cz.bakterio.discord.Tux;
 
 import cz.bakterio.discord.Tux.commands.CommandsListener;
+import cz.bakterio.discord.Tux.listeners.JoinListener;
+import cz.bakterio.discord.Tux.listeners.MemberJoinListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -27,6 +29,8 @@ public class Tux {
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);
 
         jda.addEventListener(new CommandsListener());
+        jda.addEventListener(new JoinListener());
+        jda.addEventListener(new MemberJoinListener());
     }
 
     private static String getToken() {
