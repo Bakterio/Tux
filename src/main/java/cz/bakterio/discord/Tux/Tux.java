@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
@@ -27,6 +26,7 @@ public class Tux {
         }
 
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);
+        ActivitySwitcher.startSwitcher();
 
         jda.addEventListener(new CommandsListener());
         jda.addEventListener(new JoinListener());
