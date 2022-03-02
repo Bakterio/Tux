@@ -1,8 +1,9 @@
 package cz.bakterio.discord.Tux.commands;
 
+import cz.bakterio.discord.Tux.OtherStuff;
+import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -22,14 +23,18 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new OnlineCommand());
         commands.add(new WindowsCommand());
         commands.add(new YoutubeCommand());
+        commands.add(new AvatarCommand());
     }
 
     @Override
-    public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
+    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+        OtherStuff.microshit(event);
         final String[] args = event.getMessage().getContentRaw().split(" ");
 
         if (!args[0].toLowerCase().startsWith(PREFIX)) return;
         System.out.println("Searching for command....");
+        event.getChannel().sendTyping().queue();
+        event.getMessage().addReaction("U+1F44D\t").queue();
 
         if (args.length == 1) { // help command
             commands.get(0).invoke(event, args);
