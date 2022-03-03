@@ -22,7 +22,7 @@ public class ActivitySwitcher {
                             String activity = activities[i];
                             Tux.jda.getPresence().setPresence(Activity.watching(activity), false);
                             System.out.println("Activity has been changed to '" + activity + "'.");
-                            Thread.sleep(4000);
+                            Thread.sleep(10000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
