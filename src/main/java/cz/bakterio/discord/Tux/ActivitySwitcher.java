@@ -4,7 +4,7 @@ import net.dv8tion.jda.api.entities.Activity;
 
 public class ActivitySwitcher {
     private static String[] activities = new String[] {
-            "Linus is noob",
+            "LTT Linus is noob",
             "FOSS!!!",
             "C# on linux, aaaaaaah :(",
             "Electron apps, what a bloatware!!!",
