@@ -24,6 +24,7 @@ dependencies {
     implementation group: 'net.dv8tion', name: 'JDA', version: '4.3.0_305'
     implementation group: 'com.jagrosh', name: 'jda-utilities', version: '3.0.5'
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+    implementation 'org.jsoup:jsoup:1.14.3'
 }
 
 compileJava.options.encoding = 'UTF-8'

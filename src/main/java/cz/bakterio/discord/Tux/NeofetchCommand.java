@@ -18,8 +18,8 @@ public class NeofetchCommand extends Command {
     }
 
     @Override
-    public String getHelp() {
-        return "Displays server info";
+    public String getHelp() {   
+        return "Displays server info.";
     }
 
     @Override

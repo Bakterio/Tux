@@ -25,6 +25,8 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new YoutubeCommand());
         commands.add(new AvatarCommand());
         commands.add(new NeofetchCommand());
+        commands.add(new LinuxPornCommand());
+        commands.add(new PornCommand());
     }
 
     @Override

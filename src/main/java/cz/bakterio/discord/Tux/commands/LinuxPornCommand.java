@@ -1,14 +1,22 @@
 package cz.bakterio.discord.Tux.commands;
 
+import cz.bakterio.discord.Tux.RedditScraper;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
-public class AvatarCommand extends Command{
+public class LinuxPornCommand extends Command {
     @Override
     public String getName() {
-        return "avatar";
+        return "linuxporn";
     }
 
     @Override
@@ -18,7 +26,7 @@ public class AvatarCommand extends Command{
 
     @Override
     public String getHelp() {
-        return "Sends you your avatar.";
+        return "Linuxporn :drool:.";
     }
 
     @Override
@@ -28,6 +36,6 @@ public class AvatarCommand extends Command{
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
-        e.getChannel().sendMessage("Your avatar url is: " + e.getAuthor().getAvatarUrl()).queue();
+        e.getChannel().sendMessage(RedditScraper.scrapeImage("https://www.reddit.com/r/LinuxPorn/")).queue();
     }
 }
