@@ -8,6 +8,7 @@ public class OtherStuff {
         for (String i : args) {
             if (i.equalsIgnoreCase("microsoft")) {
                 e.getMessage().reply("Did you mean: Microshit :poop:? :smile:").queue();
+                System.out.println(e.getMember().getEffectiveName() +  " is Bill Gates pet.");
                 return;
             }
         }

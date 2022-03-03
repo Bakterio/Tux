@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
+import cz.bakterio.discord.Tux.NeofetchCommand;
 import cz.bakterio.discord.Tux.OtherStuff;
-import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -24,6 +24,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new WindowsCommand());
         commands.add(new YoutubeCommand());
         commands.add(new AvatarCommand());
+        commands.add(new NeofetchCommand());
     }
 
     @Override
