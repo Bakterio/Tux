@@ -1,1 +1,3 @@
-#Tux 
+# Tux 
+
+Bot can be built by running `build.sh` and run by `start.sh`...
