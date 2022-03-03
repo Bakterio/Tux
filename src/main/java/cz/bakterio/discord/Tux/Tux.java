@@ -37,12 +37,19 @@ public class Tux {
     }
 
     private static String getToken() {
+        String returning = null;
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader("token"));
-            return reader.readLine();
+            returning = reader.readLine();
+
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        if (returning != null) return returning;
+
         System.out.println("Token error...");
         System.exit(1);
         return null;
