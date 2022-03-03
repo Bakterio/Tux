@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.NeofetchCommand;
-import cz.bakterio.discord.Tux.OtherStuff;
+import cz.bakterio.discord.Tux.Censorship;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -31,7 +31,7 @@ public class CommandsListener extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        OtherStuff.microshit(event);
+        new Censorship(event);
         final String[] args = event.getMessage().getContentRaw().split(" ");
 
         if (!args[0].toLowerCase().startsWith(PREFIX)) return;
