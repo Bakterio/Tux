@@ -29,6 +29,12 @@ public class PornCommand extends Command {
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
-        e.getChannel().sendMessage(RedditScraper.scrapeImage("https://www.reddit.com/r/porn/")).queue();
+        //e.getChannel().sendMessage(RedditScraper.scrapeImage("https://www.reddit.com/r/porn/")).queue();
+        if (!e.getChannel().isNSFW()) {
+            e.getChannel().sendMessage("I can't send it here, this is not NSFW channel... :smile:").queue();
+            return;
+        }
+        e.getMessage().addReaction("U+1F924").queue();
+        e.getChannel().sendMessage(RedditScraper.scrapeImageMemeApi("porn")).queue();
     }
 }
