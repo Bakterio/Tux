@@ -9,7 +9,8 @@ public class ActivitySwitcher {
             "C# on linux, aaaaaaah :(",
             "Electron apps, what a bloatware!!!",
             "Linus Torvalds is our god",
-            "IT crowd"
+            "IT crowd",
+            "NVIDIA, FUCK YOU!"
     };
 
     public static void startSwitcher() {
