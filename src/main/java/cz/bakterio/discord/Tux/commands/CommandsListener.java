@@ -14,7 +14,7 @@ public class CommandsListener extends ListenerAdapter {
     }
 
     private static final ArrayList<Command> commands = new ArrayList<>();
-    private final String PREFIX = (Tux.test) ? "tux" : "sudo";
+    public static final String PREFIX = (Tux.test) ? "tux" : "sudo";
 
     public CommandsListener() {
         System.out.println("CommandListener");
@@ -56,6 +56,6 @@ public class CommandsListener extends ListenerAdapter {
             }
         }
 
-        event.getChannel().sendMessage("/bin/bash: %s: command not found :wink: (try **sudo help**)".formatted(args[1])).queue();
+        event.getChannel().sendMessage("/bin/bash: " + args[1] + ": command not found :wink: (try **" + CommandsListener.PREFIX + " help**)").queue();
     }
 }

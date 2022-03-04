@@ -32,7 +32,7 @@ public class HelpCommand extends Command{
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
-        MessageBuilder builder = new MessageBuilder("Available commands: (don't forget to **sudo** prefix)");
+        MessageBuilder builder = new MessageBuilder("Available commands: (don't forget to **" + CommandsListener.PREFIX + "** prefix)");
 
         final HashMap<String, Command> commands = new HashMap<>();
         for (Command i : CommandsListener.getCommands()) {
