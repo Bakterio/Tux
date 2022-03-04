@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
-import cz.bakterio.discord.Tux.Config;
+import cz.bakterio.discord.Tux.InviteCommand;
 import cz.bakterio.discord.Tux.Tux;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -20,6 +20,7 @@ public class CommandsListener extends ListenerAdapter {
         System.out.println("CommandListener");
         commands.add(new HelpCommand());
         commands.add(new SourceCommand());
+        commands.add(new InviteCommand());
         commands.add(new LinuxCommand());
         commands.add(new DownloadCommand());
         commands.add(new OnlineCommand());
