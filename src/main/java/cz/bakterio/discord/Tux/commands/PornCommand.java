@@ -5,6 +5,7 @@ import cz.bakterio.discord.Tux.RedditScraper;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class PornCommand extends Command {

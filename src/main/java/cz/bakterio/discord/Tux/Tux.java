@@ -17,14 +17,16 @@ import java.util.Date;
 public class Tux {
     public static JDA jda;
     public static Date startupDate = new Date();
+    public static boolean test;
 
     public static void main(String[] args) {
+        test = (args.length >= 1) ? args[0].equalsIgnoreCase("test") : false;
         try {
-            jda = JDABuilder.createDefault(SecretConfig.getValue("token")).build();
+            jda = JDABuilder.createDefault(Config.getSecretValue("token")).build();
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
-        } catch (SecretConfig.KeyNotFoundException e) {
+        } catch (Config.KeyNotFoundException e) {
             e.printStackTrace();
         }
 

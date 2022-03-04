@@ -1,6 +1,8 @@
 package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
+import cz.bakterio.discord.Tux.Config;
+import cz.bakterio.discord.Tux.Tux;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -12,7 +14,7 @@ public class CommandsListener extends ListenerAdapter {
     }
 
     private static final ArrayList<Command> commands = new ArrayList<>();
-    private final String PREFIX = "sudo"; // TODO config
+    private final String PREFIX = (Tux.test) ? "tux" : "sudo";
 
     public CommandsListener() {
         System.out.println("CommandListener");
