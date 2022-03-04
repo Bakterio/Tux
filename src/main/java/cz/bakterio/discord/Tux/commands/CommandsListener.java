@@ -1,6 +1,5 @@
 package cz.bakterio.discord.Tux.commands;
 
-import cz.bakterio.discord.Tux.NeofetchCommand;
 import cz.bakterio.discord.Tux.Censorship;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

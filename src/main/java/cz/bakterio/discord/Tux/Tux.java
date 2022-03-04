@@ -24,6 +24,8 @@ public class Tux {
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
+        } catch (SecretConfig.KeyNotFoundException e) {
+            e.printStackTrace();
         }
 
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);

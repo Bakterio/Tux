@@ -1,6 +1,5 @@
-package cz.bakterio.discord.Tux;
+package cz.bakterio.discord.Tux.commands;
 
-import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

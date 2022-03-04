@@ -9,14 +9,21 @@ import java.io.IOException;
 
 public class SecretConfig {
 
-    public static String getValue(String key) {
+    public static String getValue(String key) throws KeyNotFoundException {
         try {
             Object obj = new JSONParser().parse(new FileReader("secret.json"));
             JSONObject jo = (JSONObject) obj;
-            return (String) jo.get(key);
+            String out = (String) jo.get(key);
+            if (out == null) throw new KeyNotFoundException(key);
+            return out;
         } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            throw new KeyNotFoundException(key);
         }
-        return "none";
+    }
+
+    public static class KeyNotFoundException extends Exception {
+        public KeyNotFoundException(String key) {
+            super("Key \"" + key + "\" is not in json file.");
+        }
     }
 }
