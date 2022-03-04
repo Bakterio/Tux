@@ -23,7 +23,7 @@ public class Censorship {
             if (i.equalsIgnoreCase("microsoft")) {
                 e.getMessage().reply("Did you mean: Microshit :poop:? :smile:").queue();
                 System.out.println(e.getMember().getEffectiveName() +  " is Bill Gates pet.");
-                tempChangeNickname(e.getMember(), "Microshit lover");
+                tempChangeNickname(e.getMember(), "Microshit lover", 5*60);
                 return;
             }
         }
@@ -32,12 +32,12 @@ public class Censorship {
     private void windows(GuildMessageReceivedEvent e) {
         for (String i : args) {
             if (i.equalsIgnoreCase("windows")) {
-                tempChangeNickname(e.getMember(), "Windows fanboy");
+                tempChangeNickname(e.getMember(), "Windows fanboy", 5*60);
             }
         }
     }
 
-    private void tempChangeNickname(Member m, String nickname) {
+    public static void tempChangeNickname(Member m, String nickname, long seconds) {
         m.modifyNickname(nickname);
         TimerTask tt = new TimerTask() {
             @Override
@@ -46,6 +46,6 @@ public class Censorship {
             }
         };
         Timer t = new Timer();
-        t.schedule(tt, 5*60000);
+        t.schedule(tt, seconds*1000);
     }
 }

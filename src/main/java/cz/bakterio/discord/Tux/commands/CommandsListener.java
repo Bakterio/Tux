@@ -47,7 +47,7 @@ public class CommandsListener extends ListenerAdapter {
         }
 
         for (Command i : commands) {
-            if (i.getName().equalsIgnoreCase(args[1])) {
+            if (i.getName().equalsIgnoreCase(args[1])) { // TODO aliases
                 System.out.println("Invoking command " + i.getName());
                 i.invoke(event, args);
                 return;

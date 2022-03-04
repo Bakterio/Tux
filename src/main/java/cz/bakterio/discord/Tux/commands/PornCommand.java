@@ -1,5 +1,6 @@
 package cz.bakterio.discord.Tux.commands;
 
+import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.RedditScraper;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -36,5 +37,6 @@ public class PornCommand extends Command {
         }
         e.getMessage().addReaction("U+1F924").queue();
         e.getChannel().sendMessage(RedditScraper.scrapeImageMemeApi("porn")).queue();
+        Censorship.tempChangeNickname(e.getMember(), "Weird person", 30);
     }
 }

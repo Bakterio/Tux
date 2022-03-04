@@ -45,7 +45,7 @@ public class RubleCommand extends Command {
             //System.out.println(json);
             final String value = String.valueOf(json.getJSONObject("data").getDouble("USD"));
             //System.out.println(value);
-            e.getChannel().sendMessage("Current value of Russian Ruble is " + value + " USD").queue();
+            e.getChannel().sendMessage("Current value of Russian Ruble is " + value + " USD :sweat_smile:.").queue();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
