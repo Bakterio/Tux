@@ -1,3 +1,3 @@
 #!/bin/bash
-git pull
-bash start.sh
+git rebase
+bash buildandrun.sh
