@@ -49,7 +49,7 @@ public class PackageCommand extends Command {
         for (Element i : document.select("table")) {
             if (i.attr("id").equalsIgnoreCase("pkginfo")) {
                 Element table = i.child(0);
-                table.getElements
+                //table.getElements
             }
         }
     }

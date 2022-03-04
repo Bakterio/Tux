@@ -6,3 +6,4 @@
 build
 build/libs/token
 token
+secret.json

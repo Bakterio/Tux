@@ -27,6 +27,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new NeofetchCommand());
         commands.add(new LinuxPornCommand());
         commands.add(new PornCommand());
+        commands.add(new RubleCommand());
     }
 
     @Override

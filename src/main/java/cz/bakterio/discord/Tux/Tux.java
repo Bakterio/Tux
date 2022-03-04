@@ -20,7 +20,7 @@ public class Tux {
 
     public static void main(String[] args) {
         try {
-            jda = JDABuilder.createDefault(getToken()).build();
+            jda = JDABuilder.createDefault(SecretConfig.getValue("token")).build();
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class Tux {
         ActivitySwitcher.startSwitcher();
     }
 
-    private static String getToken() {
+    private static String getToken() { //outdated
         String returning = null;
 
         try {
