@@ -18,6 +18,7 @@ public class CommandsListener extends ListenerAdapter {
     public CommandsListener() {
         System.out.println("CommandListener");
         commands.add(new HelpCommand());
+        commands.add(new SourceCommand());
         commands.add(new LinuxCommand());
         commands.add(new DownloadCommand());
         commands.add(new OnlineCommand());
