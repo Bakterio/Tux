@@ -7,6 +7,7 @@ import cz.bakterio.discord.Tux.listeners.ReadyListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
@@ -22,7 +23,10 @@ public class Tux {
     public static void main(String[] args) {
         test = (args.length >= 1) ? args[0].equalsIgnoreCase("test") : false;
         try {
-            jda = JDABuilder.createDefault(Config.getSecretValue("token")).build();
+            jda = JDABuilder.createDefault(
+                    Config.getSecretValue("token"))
+                    .enableCache(CacheFlag.VOICE_STATE)
+                    .build();
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
