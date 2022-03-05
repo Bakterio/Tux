@@ -2,9 +2,9 @@ package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.Tux;
-import cz.bakterio.discord.Tux.commands.audio.JoinCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -32,11 +32,13 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new PornCommand());
         commands.add(new RubleCommand());
         commands.add(new BitcoinCommand());
+
         commands.add(new JoinCommand());
+        commands.add(new LeaveCommand());
     }
 
     @Override
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+    public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         new Censorship(event);
         final String[] args = event.getMessage().getContentRaw().split(" ");
 
@@ -51,7 +53,7 @@ public class CommandsListener extends ListenerAdapter {
         }
 
         for (Command i : commands) {
-            if (i.getName().equalsIgnoreCase(args[1])) { // TODO aliases
+            if (isCommand(i, args[1])) {
                 System.out.println("Invoking command " + i.getName());
                 i.invoke(event, args);
                 return;
@@ -59,5 +61,15 @@ public class CommandsListener extends ListenerAdapter {
         }
 
         event.getChannel().sendMessage("/bin/bash: " + args[1] + ": command not found :wink: (try **" + CommandsListener.PREFIX + " help**)").queue();
+    }
+
+    private boolean isCommand(Command cmd, String input) {
+        if (cmd.getName().equalsIgnoreCase(input)) return true;
+
+        for (String alias : cmd.getAliases()) {
+            if (alias.equalsIgnoreCase(input)) return true;
+        }
+
+        return false;
     }
 }
