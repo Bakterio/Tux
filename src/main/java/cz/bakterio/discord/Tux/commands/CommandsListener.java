@@ -30,6 +30,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new LinuxPornCommand());
         commands.add(new PornCommand());
         commands.add(new RubleCommand());
+        commands.add(new BitcoinCommand());
     }
 
     @Override
