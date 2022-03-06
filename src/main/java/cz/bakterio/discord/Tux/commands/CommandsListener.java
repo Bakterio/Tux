@@ -32,6 +32,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new PornCommand());
         commands.add(new RubleCommand());
         commands.add(new BitcoinCommand());
+        commands.add(new BestOsCommand());
 
         commands.add(new JoinCommand());
         commands.add(new LeaveCommand());

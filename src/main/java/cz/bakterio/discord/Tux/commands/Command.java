@@ -21,7 +21,7 @@ public abstract class Command {
      */
     public abstract String getHelp();
 
-    public abstract List<Role> roles();
+    public abstract List<Role> roles(); // TODO add roles filter
 
     public abstract void invoke(GuildMessageReceivedEvent e, String[] args);
 }
