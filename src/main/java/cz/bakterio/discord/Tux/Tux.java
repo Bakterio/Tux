@@ -39,6 +39,7 @@ public class Tux {
         jda.addEventListener(new MemberJoinListener());
         jda.addEventListener(new ReadyListener());
         jda.addEventListener(new BestOsListener());
+        jda.addEventListener(new OcelotiJoinListener());
 
         ActivitySwitcher.startSwitcher();
     }
