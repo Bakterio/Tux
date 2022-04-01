@@ -2,6 +2,9 @@ package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.Tux;
+import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
+import cz.bakterio.discord.Tux.commands.supercommands.SuperChecker;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -14,6 +17,7 @@ public class CommandsListener extends ListenerAdapter {
     }
 
     private static final ArrayList<Command> commands = new ArrayList<>();
+    private static final ArrayList<Command> superCommands = new ArrayList<>();
     public static final String PREFIX = (Tux.test) ? "tux" : "sudo";
 
     public CommandsListener() {
@@ -36,6 +40,8 @@ public class CommandsListener extends ListenerAdapter {
 
         commands.add(new JoinCommand());
         commands.add(new LeaveCommand());
+
+        superCommands.add(new ServerCommand());
     }
 
     @Override
@@ -61,10 +67,22 @@ public class CommandsListener extends ListenerAdapter {
             }
         }
 
+        for (Command i : superCommands) {
+            if (isCommand(i, args[1])) {
+                if (!SuperChecker.checkMember(event.getMember())) {
+                    event.getChannel().sendMessage("You ain't a super user, fuck off!!!").queue();
+                    return;
+                }
+                System.out.println("Invoking command " + i.getName());
+                i.invoke(event, args);
+                return;
+            }
+        }
+
         event.getChannel().sendMessage("/bin/bash: " + args[1] + ": command not found :wink: (try **" + CommandsListener.PREFIX + " help**)").queue();
     }
 
-    private boolean isCommand(Command cmd, String input) {
+    public static boolean isCommand(Command cmd, String input) {
         if (cmd.getName().equalsIgnoreCase(input)) return true;
 
         for (String alias : cmd.getAliases()) {
