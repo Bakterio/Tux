@@ -23,7 +23,7 @@ public class PlayCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Plays music.";
+        return "Plays music. *play *<youtube url>*";
     }
 
     @Override
