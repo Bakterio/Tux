@@ -1,4 +1,4 @@
-package cz.bakterio.discord.Tux.commands;
+package cz.bakterio.discord.Tux.commands.audio;
 
 import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.entities.GuildVoiceState;

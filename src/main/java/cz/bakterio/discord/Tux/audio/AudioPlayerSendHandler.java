@@ -24,7 +24,6 @@ public class AudioPlayerSendHandler implements AudioSendHandler {
         return this.audioPlayer.provide(this.frame);
     }
 
-    @Nullable
     @Override
     public ByteBuffer provide20MsAudio() {
         return this.buffer.flip();
