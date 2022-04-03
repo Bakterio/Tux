@@ -4,7 +4,6 @@ import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.Tux;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
 import cz.bakterio.discord.Tux.commands.supercommands.SuperChecker;
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;

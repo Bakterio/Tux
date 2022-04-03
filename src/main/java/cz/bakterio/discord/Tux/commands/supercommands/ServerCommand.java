@@ -38,6 +38,6 @@ public class ServerCommand extends Command {
         for (Guild g : e.getJDA().getGuilds()) {
             builder.addField(g.getName() + "\n", "Members: " + g.getMemberCount(), false);
         }
-        e.getChannel().sendMessage(builder.build()).queue();
+        e.getChannel().sendMessageEmbeds(builder.build()).queue();
     }
 }

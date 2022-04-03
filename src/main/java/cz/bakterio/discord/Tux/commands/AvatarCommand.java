@@ -1,8 +1,10 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.components.Button;
 
 import java.awt.*;
 import java.util.List;
@@ -31,11 +33,16 @@ public class AvatarCommand extends Command{
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
         final EmbedBuilder builder = new EmbedBuilder();
-        builder.setImage(e.getAuthor().getAvatarUrl());
+        final String url = (e.getMessage().getMentionedMembers().size() == 0) ? e.getMember().getUser().getAvatarUrl() :
+                e.getMessage().getMentionedMembers().get(0).getUser().getAvatarUrl();
+        builder.setImage(url);
         builder.setTitle(e.getMember().getEffectiveName() + "'s avatar");
         builder.setColor(Color.YELLOW);
         builder.setDescription("Here is your avatar");
-        e.getChannel().sendMessageEmbeds(builder.build()).queue();
+
+        Button link = Button.primary("link", "Download").withUrl(url)
+                .withEmoji(Emoji.fromMarkdown("U+2B07"));
+        e.getChannel().sendMessageEmbeds(builder.build()).setActionRow(link).queue();
         //e.getChannel().sendMessage("Your avatar url is: " + e.getAuthor().getAvatarUrl()).queue();
     }
 }
