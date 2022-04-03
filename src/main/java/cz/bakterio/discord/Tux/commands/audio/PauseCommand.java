@@ -23,7 +23,7 @@ public class PauseCommand extends Command {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Pauses the music.";
     }
 
     @Override
