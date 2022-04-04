@@ -1,5 +1,6 @@
-package cz.bakterio.discord.Tux.commands;
+package cz.bakterio.discord.Tux.commands.audio;
 
+import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Role;
@@ -40,6 +41,7 @@ public class LeaveCommand extends Command {
 
         final AudioManager audioManager = e.getGuild().getAudioManager();
         audioManager.closeAudioConnection(); // TODO why tf is this not working?
+        PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).scheduler.clearup();
         e.getChannel().sendMessage("See you around... :wink:").queue();
     }
 }

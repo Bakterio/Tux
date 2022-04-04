@@ -3,6 +3,7 @@ package cz.bakterio.discord.Tux.commands;
 import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.Tux;
 import cz.bakterio.discord.Tux.commands.audio.JoinCommand;
+import cz.bakterio.discord.Tux.commands.audio.LeaveCommand;
 import cz.bakterio.discord.Tux.commands.audio.PauseCommand;
 import cz.bakterio.discord.Tux.commands.audio.PlayCommand;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;

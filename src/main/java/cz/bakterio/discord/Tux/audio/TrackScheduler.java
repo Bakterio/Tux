@@ -34,4 +34,10 @@ public class TrackScheduler extends AudioEventAdapter {
             this.queue.offer(track);
         }
     }
+
+    public void clearup() {
+        for (int i = 0; i < queue.size(); i++) {
+            queue.remove(i);
+        }
+    }
 }
