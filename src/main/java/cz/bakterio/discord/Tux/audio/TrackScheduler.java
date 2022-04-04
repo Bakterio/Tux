@@ -40,4 +40,8 @@ public class TrackScheduler extends AudioEventAdapter {
             queue.remove(i);
         }
     }
+
+    public boolean isEmpty() {
+        return this.queue.isEmpty();
+    }
 }

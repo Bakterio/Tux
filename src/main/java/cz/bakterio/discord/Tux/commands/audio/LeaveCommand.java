@@ -41,6 +41,7 @@ public class LeaveCommand extends Command {
 
         final AudioManager audioManager = e.getGuild().getAudioManager();
         audioManager.closeAudioConnection(); // TODO why tf is this not working?
+        PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.destroy();
         PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).scheduler.clearup();
         e.getChannel().sendMessage("See you around... :wink:").queue();
     }

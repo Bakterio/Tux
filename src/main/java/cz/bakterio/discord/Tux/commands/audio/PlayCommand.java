@@ -50,6 +50,11 @@ public class PlayCommand extends Command {
         if (args.length == 2) {
             PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.setPaused(false);
 
+            if (PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).scheduler.isEmpty()) {
+                e.getChannel().sendMessage("There is nothing in the queue, please add something.").queue();
+                return;
+            }
+
             e.getChannel().sendMessage("OK, starts playing...").queue();
             return;
         }
