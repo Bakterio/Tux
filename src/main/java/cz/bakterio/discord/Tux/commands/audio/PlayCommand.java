@@ -8,6 +8,11 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayCommand extends Command {
@@ -58,7 +63,31 @@ public class PlayCommand extends Command {
             return;
         }
 
-        final String url = args[2];
+        final ArrayList<String> listArgs = new ArrayList<>();
+        listArgs.addAll(List.of(args));
+        listArgs.remove(0);
+        listArgs.remove(1);
+
+/*        String url = args[2];
+
+        if (!isUrl(url)) {
+            url = "ytsearch:" + String.join(" ", listArgs);
+            System.out.println("yt");
+            System.out.println("listArgs.size() = " + listArgs.size());
+        }*/
+
+        final String url = (isUrl(args[2])) ? args[2] : "ytsearch:" + String.join(" ", listArgs);
+
+        System.out.println("url = " + url);
         PlayerManager.getINSTANCE().loadAndPlay(channel, url);
+    }
+
+    private boolean isUrl(String url) {
+        try {
+            new URL(url);
+            return true;
+        } catch (MalformedURLException e) {
+            return false;
+        }
     }
 }

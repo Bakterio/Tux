@@ -43,16 +43,23 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack track) {
                 musicManager.scheduler.queue(track);
 
-                channel.sendMessage("Adding to queue: ")
+                channel.sendMessage("Adding to queue: **")
                         .append(track.getInfo().title)
-                        .append("by")
+                        .append("** by ")
                         .append(track.getInfo().author)
                         .queue();
             }
 
             @Override
             public void playlistLoaded(AudioPlaylist playlist) {
+                AudioTrack track = playlist.getTracks().get(0);
+                musicManager.scheduler.queue(track);
 
+                channel.sendMessage("Adding to queue: **")
+                        .append(track.getInfo().title)
+                        .append("** by ")
+                        .append(track.getInfo().author)
+                        .queue();
             }
 
             @Override
