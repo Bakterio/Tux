@@ -33,6 +33,8 @@ public class PauseCommand extends Command {
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
+        if (AudioChecker.check(e)) return;
+
         final TextChannel channel = e.getChannel();
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();

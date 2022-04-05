@@ -32,6 +32,8 @@ public class LeaveCommand extends Command {
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
+        if (AudioChecker.check(e)) return;
+
         final GuildVoiceState voiceState = e.getGuild().getSelfMember().getVoiceState();
 
         if (!voiceState.inVoiceChannel()) {

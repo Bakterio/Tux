@@ -9,8 +9,6 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +40,7 @@ public class PlayCommand extends Command {
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
-        if (!selfVoiceState.inVoiceChannel()) {
-            channel.sendMessage("I need to be in voice channel, use join command.").queue();
-            return;
-        }
+        if (AudioChecker.check(e)) return;
 
         if (args.length == 2) {
             PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.setPaused(false);
