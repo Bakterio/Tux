@@ -2,10 +2,7 @@ package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.Tux;
-import cz.bakterio.discord.Tux.commands.audio.JoinCommand;
-import cz.bakterio.discord.Tux.commands.audio.LeaveCommand;
-import cz.bakterio.discord.Tux.commands.audio.PauseCommand;
-import cz.bakterio.discord.Tux.commands.audio.PlayCommand;
+import cz.bakterio.discord.Tux.commands.audio.*;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
 import cz.bakterio.discord.Tux.commands.supercommands.SuperChecker;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -45,6 +42,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new LeaveCommand());
         commands.add(new PlayCommand());
         commands.add(new PauseCommand());
+        commands.add(new SkipCommand());
 
         superCommands.add(new ServerCommand());
     }
