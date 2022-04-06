@@ -20,7 +20,7 @@ public class OnlineCommand extends Command{
 
     @Override
     public String getHelp() {
-        return "Shows bot's online time.";
+        return "Shows bot's online time. :timer:";
     }
 
     @Override

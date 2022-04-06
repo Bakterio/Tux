@@ -23,7 +23,7 @@ public class RubleCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Shows current ruble value.";
+        return "Shows current ruble value. :chart_with_downwards_trend:";
     }
 
     @Override

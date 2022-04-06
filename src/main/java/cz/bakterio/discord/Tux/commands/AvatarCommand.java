@@ -22,7 +22,7 @@ public class AvatarCommand extends Command{
 
     @Override
     public String getHelp() {
-        return "Sends you your avatar.";
+        return "Sends you your avatar. :baby:";
     }
 
     @Override

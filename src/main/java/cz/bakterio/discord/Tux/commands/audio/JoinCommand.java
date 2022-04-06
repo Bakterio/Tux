@@ -21,7 +21,7 @@ public class JoinCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "I will join your audio channel.";
+        return "I will join your audio channel. :notes:";
     }
 
     @Override

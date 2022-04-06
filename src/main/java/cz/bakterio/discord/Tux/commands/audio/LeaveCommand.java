@@ -22,7 +22,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Get outta here!!!";
+        return "Get outta here!!! :eject:";
     }
 
     @Override

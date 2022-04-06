@@ -18,7 +18,7 @@ public class SourceCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Let's look under the hood.";
+        return "Let's look under the hood. :information_source:";
     }
 
     @Override

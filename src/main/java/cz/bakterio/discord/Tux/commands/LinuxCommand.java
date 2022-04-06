@@ -18,7 +18,7 @@ public class LinuxCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Return short text about GNU/Linux.";
+        return "Return short text about GNU/Linux. :computer:";
     }
 
     @Override

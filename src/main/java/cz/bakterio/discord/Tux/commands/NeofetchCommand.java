@@ -18,7 +18,7 @@ public class NeofetchCommand extends Command {
 
     @Override
     public String getHelp() {   
-        return "Displays server info.";
+        return "Displays server info. :information_source:";
     }
 
     @Override

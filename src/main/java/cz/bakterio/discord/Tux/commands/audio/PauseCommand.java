@@ -23,7 +23,7 @@ public class PauseCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Pauses the music.";
+        return "Pauses the music. :pause_button:";
     }
 
     @Override

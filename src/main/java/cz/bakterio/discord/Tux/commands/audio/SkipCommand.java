@@ -21,7 +21,7 @@ public class SkipCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Skip the song in queue.";
+        return "Skip the song in queue. :next_track:";
     }
 
     @Override

@@ -18,7 +18,7 @@ public class DownloadCommand extends Command{
 
     @Override
     public String getHelp() {
-        return "Shows some download sites.";
+        return "Shows some download sites. :arrow_down:";
     }
 
     @Override

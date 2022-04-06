@@ -24,7 +24,7 @@ public class BitcoinCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Current value of bitcoin.";
+        return "Current value of bitcoin. :chart_with_upwards_trend:";
     }
 
     @Override

@@ -25,7 +25,7 @@ public class PackageCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Shows info about arch-linux package.";
+        return "Shows info about arch-linux package. :package:";
     }
 
     @Override

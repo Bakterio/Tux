@@ -20,7 +20,7 @@ public class BestOsCommand extends Command {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Can you guess the best os? :computer:";
     }
 
     @Override

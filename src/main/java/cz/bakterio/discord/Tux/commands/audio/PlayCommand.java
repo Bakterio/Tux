@@ -26,7 +26,7 @@ public class PlayCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Plays music. *play *<youtube url>*";
+        return "Plays music. **play *<youtube url>*** :play_pause: :musical_note:";
     }
 
     @Override

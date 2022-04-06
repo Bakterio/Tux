@@ -19,7 +19,7 @@ public class WindowsCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Windows, ah dear...";
+        return "Windows, ah dear... :window:";
     }
 
     @Override
