@@ -40,7 +40,7 @@ public class PlayCommand extends Command {
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
-        if (AudioChecker.check(e)) return;
+        if (AudioTools.check(e)) return;
 
         if (args.length == 2) {
             PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.setPaused(false);
@@ -66,7 +66,7 @@ public class PlayCommand extends Command {
         final ArrayList<String> listArgs = new ArrayList<>();
         listArgs.addAll(List.of(args));
         listArgs.remove(0);
-        listArgs.remove(1);
+        listArgs.remove(0);
 
 /*        String url = args[2];
 

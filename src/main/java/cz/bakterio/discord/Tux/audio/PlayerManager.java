@@ -7,6 +7,7 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import cz.bakterio.discord.Tux.commands.audio.AudioTools;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 
@@ -43,11 +44,7 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack track) {
                 musicManager.scheduler.queue(track);
 
-                channel.sendMessage("Adding to queue: **")
-                        .append(track.getInfo().title)
-                        .append("** by ")
-                        .append(track.getInfo().author)
-                        .queue();
+                channel.sendMessageEmbeds(AudioTools.infoEmbed(track, "Track added.")).queue();
             }
 
             @Override
@@ -55,11 +52,7 @@ public class PlayerManager {
                 AudioTrack track = playlist.getTracks().get(0);
                 musicManager.scheduler.queue(track);
 
-                channel.sendMessage("Adding to queue: **")
-                        .append(track.getInfo().title)
-                        .append("** by ")
-                        .append(track.getInfo().author)
-                        .queue();
+                channel.sendMessageEmbeds(AudioTools.infoEmbed(track, "Track added.")).queue();
             }
 
             @Override

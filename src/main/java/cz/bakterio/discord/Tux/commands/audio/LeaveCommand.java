@@ -1,4 +1,4 @@
-package cz.bakterio.discord.Tux.commands.audio;
+package cz.bakterio.discord.Tux.commands.audio;// TODO why tf is this not working?
 
 import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
@@ -32,7 +32,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
-        if (AudioChecker.check(e)) return;
+        if (AudioTools.check(e)) return;
 
         final GuildVoiceState voiceState = e.getGuild().getSelfMember().getVoiceState();
 
@@ -42,7 +42,7 @@ public class LeaveCommand extends Command {
         }
 
         final AudioManager audioManager = e.getGuild().getAudioManager();
-        audioManager.closeAudioConnection(); // TODO why tf is this not working?
+        audioManager.closeAudioConnection();
         PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.destroy();
         PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).scheduler.clearup();
         e.getChannel().sendMessage("See you around... :wink:").queue();

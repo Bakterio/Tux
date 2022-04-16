@@ -1,6 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Censorship;
+import cz.bakterio.discord.Tux.Logger;
 import cz.bakterio.discord.Tux.Tux;
 import cz.bakterio.discord.Tux.commands.audio.*;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
@@ -19,6 +20,8 @@ public class CommandsListener extends ListenerAdapter {
     private static final ArrayList<Command> commands = new ArrayList<>();
     private static final ArrayList<Command> superCommands = new ArrayList<>();
     public static final String PREFIX = (Tux.test) ? "tux" : "sudo";
+
+    private static final Logger logger = new Logger("commands.log");
 
     public CommandsListener() {
         System.out.println("CommandListener");
@@ -43,6 +46,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new PlayCommand());
         commands.add(new PauseCommand());
         commands.add(new SkipCommand());
+        commands.add(new PlayingCommand());
 
         superCommands.add(new ServerCommand());
     }
@@ -65,6 +69,7 @@ public class CommandsListener extends ListenerAdapter {
         for (Command i : commands) {
             if (isCommand(i, args[1])) {
                 System.out.println("Invoking command " + i.getName());
+                logger.log(event.getGuild().getId() + "#" + event.getChannel().getName() + " -- " + event.getMember().getUser().getName() + " -- " + i.getName());
                 i.invoke(event, args);
                 return;
             }

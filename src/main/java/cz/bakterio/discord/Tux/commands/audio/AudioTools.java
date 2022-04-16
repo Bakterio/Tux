@@ -1,10 +1,16 @@
 package cz.bakterio.discord.Tux.commands.audio;
 
+import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class AudioChecker {
+import java.awt.*;
+
+public class AudioTools {
     public static boolean check(GuildMessageReceivedEvent e) {
         /**
          * Return true if there is a problem, false if not.
@@ -23,5 +29,15 @@ public class AudioChecker {
             return true;
         }
         return false;
+    }
+
+    public static MessageEmbed infoEmbed(AudioTrack track, String title) {
+        final EmbedBuilder b = new EmbedBuilder();
+        b.setTitle(title);
+        AudioTrackInfo info = track.getInfo();
+        b.addField(info.title, "by: " + info.author, false);
+        b.setColor(Color.YELLOW);
+        b.setFooter(info.uri);
+        return b.build();
     }
 }

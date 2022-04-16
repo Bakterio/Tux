@@ -31,7 +31,7 @@ public class SkipCommand extends Command {
 
     @Override
     public void invoke(GuildMessageReceivedEvent e, String[] args) {
-        if (AudioChecker.check(e)) return;
+        if (AudioTools.check(e)) return;
 
         GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(e.getGuild());
 
@@ -41,6 +41,6 @@ public class SkipCommand extends Command {
         }
 
         musicManager.scheduler.nextTrack();
-        e.getChannel().sendMessage("Skipping...").queue();
+        e.getChannel().sendMessageEmbeds(AudioTools.infoEmbed(musicManager.audioPlayer.getPlayingTrack(), "Skipping...")).queue();
     }
 }
