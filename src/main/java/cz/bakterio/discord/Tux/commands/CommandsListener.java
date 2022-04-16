@@ -69,7 +69,7 @@ public class CommandsListener extends ListenerAdapter {
         for (Command i : commands) {
             if (isCommand(i, args[1])) {
                 System.out.println("Invoking command " + i.getName());
-                logger.log(event.getGuild().getId() + "#" + event.getChannel().getName() + " -- " + event.getMember().getUser().getName() + " -- " + i.getName());
+                logger.log("#" + event.getChannel().getName() + " -- " + event.getMember().getUser().getName() + " -- " + i.getName());
                 i.invoke(event, args);
                 return;
             }
