@@ -1,5 +1,6 @@
 package cz.bakterio.discord.Tux.commands.audio;// TODO why tf is this not working?
 
+import cz.bakterio.discord.Tux.audio.GuildMusicManager;
 import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
@@ -43,8 +44,10 @@ public class LeaveCommand extends Command {
 
         final AudioManager audioManager = e.getGuild().getAudioManager();
         audioManager.closeAudioConnection();
-        PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.destroy();
-        PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).scheduler.clearup();
+        GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(e.getGuild());
+        musicManager.audioPlayer.destroy();
+        musicManager.scheduler.clearup();
+        musicManager.audioPlayer.setVolume(100);
         e.getChannel().sendMessage("See you around... :wink:").queue();
     }
 }

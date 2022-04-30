@@ -47,6 +47,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new PauseCommand());
         commands.add(new SkipCommand());
         commands.add(new PlayingCommand());
+        commands.add(new VolumeCommand());
 
         superCommands.add(new ServerCommand());
     }
