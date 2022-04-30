@@ -44,4 +44,8 @@ public class TrackScheduler extends AudioEventAdapter {
     public boolean isEmpty() {
         return this.queue.isEmpty();
     }
+
+    public BlockingQueue<AudioTrack> getQueue() {
+        return queue;
+    }
 }

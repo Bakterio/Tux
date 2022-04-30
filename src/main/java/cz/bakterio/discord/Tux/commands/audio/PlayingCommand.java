@@ -16,7 +16,7 @@ public class PlayingCommand extends Command {
 
     @Override
     public String[] getAliases() {
-        return new String[] {"nowplaying", "now"};
+        return new String[] {"nowplaying", "now", "song"};
     }
 
     @Override
