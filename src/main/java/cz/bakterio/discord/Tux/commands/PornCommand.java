@@ -3,7 +3,7 @@ package cz.bakterio.discord.Tux.commands;
 import cz.bakterio.discord.Tux.Censorship;
 import cz.bakterio.discord.Tux.RedditScraper;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class PornCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         //e.getChannel().sendMessage(RedditScraper.scrapeImage("https://www.reddit.com/r/porn/")).queue();
         if (!e.getChannel().isNSFW()) {
             e.getChannel().sendMessage("I can't send it here, this is not NSFW channel... :smile:").queue();

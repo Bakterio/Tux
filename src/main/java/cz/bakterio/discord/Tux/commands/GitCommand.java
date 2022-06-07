@@ -2,7 +2,7 @@ package cz.bakterio.discord.Tux.commands;
 
 import cz.bakterio.discord.Tux.Tux;
 import net.dv8tion.jda.api.entities.*;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class GitCommand extends Command{
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         e.getChannel().sendMessage("""
                 %s
                 

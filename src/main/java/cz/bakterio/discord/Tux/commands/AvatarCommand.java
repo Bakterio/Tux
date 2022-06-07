@@ -3,7 +3,7 @@ package cz.bakterio.discord.Tux.commands;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.interactions.components.Button;
 
 import java.awt.*;
@@ -31,7 +31,7 @@ public class AvatarCommand extends Command{
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         final EmbedBuilder builder = new EmbedBuilder();
         final boolean mentoned = (e.getMessage().getMentionedMembers().size() != 0);
         final String url = (!mentoned) ? e.getMember().getUser().getAvatarUrl() :

@@ -4,7 +4,7 @@ import cz.bakterio.discord.Tux.Config;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class HelpCommand extends Command{
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         final EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle("My Commands");
         builder.setColor(Color.YELLOW);

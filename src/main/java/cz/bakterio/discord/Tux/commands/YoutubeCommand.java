@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class YoutubeCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         e.getChannel().sendMessage("""
                 Here is some of my favourite youtube creators:
                   DistroTube - https://www.youtube.com/c/DistroTube

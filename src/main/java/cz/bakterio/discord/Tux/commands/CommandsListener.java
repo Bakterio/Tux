@@ -6,7 +6,7 @@ import cz.bakterio.discord.Tux.Tux;
 import cz.bakterio.discord.Tux.commands.audio.*;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
 import cz.bakterio.discord.Tux.commands.supercommands.SuperChecker;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
@@ -54,7 +54,8 @@ public class CommandsListener extends ListenerAdapter {
     }
 
     @Override
-    public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        if (!event.isFromGuild()) return;
         new Censorship(event);
         final String[] args = event.getMessage().getContentRaw().split(" ");
 

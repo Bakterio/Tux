@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.json.JSONTokener;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -34,7 +34,7 @@ public class PackageCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         try {
             final String baseUrl = "https://aur.archlinux.org/rpc?v=5&type=info&arg[]=biojava";
             final URL url = new URL(baseUrl + args[2]);

@@ -4,7 +4,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class PlayingCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         AudioTools.check(e);
         AudioTrack track = PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.getPlayingTrack();
 

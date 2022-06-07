@@ -6,12 +6,12 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
 
 public class AudioTools {
-    public static boolean check(GuildMessageReceivedEvent e) {
+    public static boolean check(MessageReceivedEvent e) {
         /**
          * Return true if there is a problem, false if not.
          */

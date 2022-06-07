@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -35,7 +35,7 @@ public class PlayCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         final TextChannel channel = e.getChannel();
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();

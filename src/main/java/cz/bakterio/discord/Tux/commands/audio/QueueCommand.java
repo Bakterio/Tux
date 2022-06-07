@@ -6,7 +6,7 @@ import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
 import java.util.List;
@@ -33,7 +33,7 @@ public class QueueCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         final GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(e.getGuild());
         final EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle("Queue");

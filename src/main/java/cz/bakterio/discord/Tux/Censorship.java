@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux;
 
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,13 +12,13 @@ public class Censorship {
     TODO add logging :D
      */
     private final String[] args;
-    public Censorship(GuildMessageReceivedEvent e) {
+    public Censorship(net.dv8tion.jda.api.events.message.MessageReceivedEvent e) {
         args = e.getMessage().getContentRaw().split(" ");
         microshit(e);
         windows(e);
     }
 
-    private void microshit(GuildMessageReceivedEvent e) {
+    private void microshit(MessageReceivedEvent e) {
         for (String i : args) {
             if (i.equalsIgnoreCase("microsoft")) {
                 e.getMessage().reply("Did you mean: Microshit :poop:? :smile:").queue();
@@ -29,7 +29,7 @@ public class Censorship {
         }
     }
 
-    private void windows(GuildMessageReceivedEvent e) {
+    private void windows(MessageReceivedEvent e) {
         for (String i : args) {
             if (i.equalsIgnoreCase("windows")) {
                 tempChangeNickname(e.getMember(), "Windows fanboy", 5*60);

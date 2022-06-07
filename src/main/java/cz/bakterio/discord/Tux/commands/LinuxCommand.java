@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class LinuxCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         e.getChannel().sendMessage("Linux is a family of open-source Unix-like operating systems based on the Linux kernel," +
                 "an operating system kernel first released on September 17, 1991, by Linus Torvalds. " +
                 "Linux is typically packaged in a Linux distribution.").queue();

@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.HierarchyException;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class WindowsCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         e.getChannel().sendMessage("""
                 Windows? Are you fucking joking to me??? :rage:
                 

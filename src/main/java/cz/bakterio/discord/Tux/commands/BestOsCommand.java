@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.interactions.components.Button;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class BestOsCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         final ArrayList<Button> buttons = new ArrayList<>();
 
         buttons.add(Button.primary("windows", "Windows"));

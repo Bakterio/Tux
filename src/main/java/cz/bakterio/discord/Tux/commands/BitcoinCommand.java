@@ -2,7 +2,7 @@ package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -33,7 +33,7 @@ public class BitcoinCommand extends Command {
     }
 
     @Override
-    public void invoke(GuildMessageReceivedEvent e, String[] args) {
+    public void invoke(MessageReceivedEvent e, String[] args) {
         try {
             final String url = "https://blockchain.info/ticker";
             final URL urlForGetRequest = new URL(url);

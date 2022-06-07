@@ -1,7 +1,7 @@
 package cz.bakterio.discord.Tux.commands;
 
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -23,5 +23,5 @@ public abstract class Command {
 
     public abstract List<Role> roles(); // TODO add roles filter
 
-    public abstract void invoke(GuildMessageReceivedEvent e, String[] args);
+    public abstract void invoke(MessageReceivedEvent e, String[] args);
 }

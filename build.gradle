@@ -7,7 +7,7 @@ plugins {
 group 'cz.bakterio'
 version '1.0-SNAPSHOT'
 
-mainClassName = 'cz.bakterio.discord.Tux.Tux';
+mainClassName = 'cz.bakterio.discord.Tux.Tux'
 
 version '1.0'
 
@@ -17,19 +17,18 @@ repositories {
         url 'https://m2.dv8tion.net/releases'
     }
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    implementation group: 'net.dv8tion', name: 'JDA', version: '4.3.0_305'
-    implementation group: 'com.jagrosh', name: 'jda-utilities', version: '3.0.5'
+    implementation group: 'net.dv8tion', name: 'JDA', version: '5.0.0-alpha.12'
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
     implementation 'org.jsoup:jsoup:1.14.3'
     implementation group: "com.googlecode.json-simple", name: "json-simple", version: "1.1.1"
     implementation "com.sedmelluq:lavaplayer:1.3.77"
+    implementation 'org.json:json:20220320'
 }
 
 compileJava.options.encoding = 'UTF-8'
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_18
+targetCompatibility = JavaVersion.VERSION_18
