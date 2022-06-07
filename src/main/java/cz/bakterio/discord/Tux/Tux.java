@@ -1,6 +1,7 @@
 package cz.bakterio.discord.Tux;
 
 import cz.bakterio.discord.Tux.commands.CommandsListener;
+import cz.bakterio.discord.Tux.commands.slashcommands.SlashCommandsManager;
 import cz.bakterio.discord.Tux.commands.slashcommands.WhoamiScommand;
 import cz.bakterio.discord.Tux.listeners.*;
 import net.dv8tion.jda.api.JDA;
@@ -42,6 +43,7 @@ public class Tux {
         jda.addEventListener(new BestOsListener());
         jda.addEventListener(new OcelotiJoinListener());
         jda.addEventListener(new WhoamiScommand());
+        jda.addEventListener(new SlashCommandsManager());
 
         ActivitySwitcher.startSwitcher();
     }

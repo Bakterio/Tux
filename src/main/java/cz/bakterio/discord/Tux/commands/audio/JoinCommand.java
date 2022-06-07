@@ -34,12 +34,12 @@ public class JoinCommand extends Command {
         final GuildVoiceState voiceState = e.getGuild().getSelfMember().getVoiceState();
         final GuildVoiceState memberVoiceState = e.getMember().getVoiceState();
 
-        if (voiceState.inVoiceChannel()) {
+        if (voiceState.inAudioChannel()) {
             e.getChannel().sendMessage("I am already in " + voiceState.getChannel().getName() + " channel.").queue();
             return;
         }
 
-        if (!memberVoiceState.inVoiceChannel()) {
+        if (!memberVoiceState.inAudioChannel()) {
             e.getChannel().sendMessage("You have to be in voice channel to invoke this command...").queue();
             return;
         }

@@ -2,10 +2,7 @@ package cz.bakterio.discord.Tux.commands.audio;
 
 import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
-import net.dv8tion.jda.api.entities.GuildVoiceState;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.net.MalformedURLException;
@@ -36,7 +33,7 @@ public class PlayCommand extends Command {
 
     @Override
     public void invoke(MessageReceivedEvent e, String[] args) {
-        final TextChannel channel = e.getChannel();
+        final MessageChannel channel = e.getChannel();
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
@@ -58,7 +55,7 @@ public class PlayCommand extends Command {
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
 
-        if (!memberVoiceState.inVoiceChannel()) {
+        if (!memberVoiceState.inAudioChannel()) {
             channel.sendMessage("You need to be in voice channel.").queue();
             return;
         }
@@ -79,7 +76,7 @@ public class PlayCommand extends Command {
         final String url = (isUrl(args[2])) ? args[2] : "ytsearch:" + String.join(" ", listArgs);
 
         System.out.println("url = " + url);
-        PlayerManager.getINSTANCE().loadAndPlay(channel, url);
+        PlayerManager.getINSTANCE().loadAndPlay(e.getTextChannel(), url);
     }
 
     private boolean isUrl(String url) {

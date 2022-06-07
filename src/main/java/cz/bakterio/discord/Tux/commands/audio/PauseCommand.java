@@ -2,10 +2,7 @@ package cz.bakterio.discord.Tux.commands.audio;
 
 import cz.bakterio.discord.Tux.audio.PlayerManager;
 import cz.bakterio.discord.Tux.commands.Command;
-import net.dv8tion.jda.api.entities.GuildVoiceState;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
@@ -35,11 +32,11 @@ public class PauseCommand extends Command {
     public void invoke(MessageReceivedEvent e, String[] args) {
         if (AudioTools.check(e)) return;
 
-        final TextChannel channel = e.getChannel();
+        final MessageChannel channel = e.getChannel();
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
-        if (!selfVoiceState.inVoiceChannel()) {
+        if (!selfVoiceState.inAudioChannel()) {
             channel.sendMessage("I need to be in voice channel, use join command.").queue();
             return;
         }

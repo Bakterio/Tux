@@ -37,7 +37,7 @@ public class LeaveCommand extends Command {
 
         final GuildVoiceState voiceState = e.getGuild().getSelfMember().getVoiceState();
 
-        if (!voiceState.inVoiceChannel()) {
+        if (!voiceState.inAudioChannel()) {
             e.getChannel().sendMessage("I can't leave, I am not in any voice channel!!!").queue();
             return;
         }

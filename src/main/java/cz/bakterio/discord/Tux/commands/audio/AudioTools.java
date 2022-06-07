@@ -18,10 +18,10 @@ public class AudioTools {
         final Member selfMember = e.getGuild().getSelfMember();
         final GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
-        if (!e.getMember().getVoiceState().inVoiceChannel()) {
+        if (!e.getMember().getVoiceState().inAudioChannel()) {
             e.getChannel().sendMessage("You are not in voice channel!!!").queue();
             return true;
-        } else if (!selfVoiceState.inVoiceChannel()) {
+        } else if (!selfVoiceState.inAudioChannel()) {
             e.getChannel().sendMessage("I am not in voice channel, please join me.").queue();
             return true;
         } else if (e.getMember().getVoiceState().getChannel() != selfVoiceState.getChannel()) {
