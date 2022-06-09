@@ -48,6 +48,7 @@ public class LeaveCommand extends Command {
         musicManager.audioPlayer.destroy();
         musicManager.scheduler.clearup();
         musicManager.audioPlayer.setVolume(100);
+        PlayerManager.getINSTANCE().getMusicManager(e.getGuild()).audioPlayer.setPaused(false);
         e.getChannel().sendMessage("See you around... :wink:").queue();
     }
 }
