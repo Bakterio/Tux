@@ -35,5 +35,10 @@ public class SetupCommand extends Command {
 
     @Override
     public void invoke(MessageReceivedEvent e, String[] args) {
+        try {
+            // setup code here
+        } finally {
+            e.getMessage().reply("Setup has been done successfully").queue();
+        }
     }
 }
