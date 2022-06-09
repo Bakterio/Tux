@@ -5,6 +5,7 @@ import cz.bakterio.discord.Tux.Logger;
 import cz.bakterio.discord.Tux.Tux;
 import cz.bakterio.discord.Tux.commands.audio.*;
 import cz.bakterio.discord.Tux.commands.supercommands.ServerCommand;
+import cz.bakterio.discord.Tux.commands.supercommands.SetupCommand;
 import cz.bakterio.discord.Tux.commands.supercommands.SuperChecker;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -51,6 +52,7 @@ public class CommandsListener extends ListenerAdapter {
         commands.add(new QueueCommand());
 
         superCommands.add(new ServerCommand());
+        superCommands.add(new SetupCommand());
     }
 
     @Override

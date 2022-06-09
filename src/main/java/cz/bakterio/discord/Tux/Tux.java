@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Objects;
 
 public class Tux {
     public static JDA jda;
@@ -26,11 +27,12 @@ public class Tux {
             jda = JDABuilder.createDefault(
                     Config.getSecretValue("token"))
                     .enableCache(CacheFlag.VOICE_STATE)
-                    .build();
+                    .build()
+                    .awaitReady();
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
-        } catch (Config.KeyNotFoundException e) {
+        } catch (Config.KeyNotFoundException | InterruptedException e) {
             e.printStackTrace();
         }
 

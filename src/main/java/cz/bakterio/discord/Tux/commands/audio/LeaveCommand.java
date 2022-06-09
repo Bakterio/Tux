@@ -1,4 +1,4 @@
-package cz.bakterio.discord.Tux.commands.audio;// TODO why tf is this not working?
+package cz.bakterio.discord.Tux.commands.audio;
 
 import cz.bakterio.discord.Tux.audio.GuildMusicManager;
 import cz.bakterio.discord.Tux.audio.PlayerManager;

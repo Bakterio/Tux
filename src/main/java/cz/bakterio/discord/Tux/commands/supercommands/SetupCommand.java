@@ -1,15 +1,21 @@
-package cz.bakterio.discord.Tux.commands;
+package cz.bakterio.discord.Tux.commands.supercommands;
 
 import cz.bakterio.discord.Tux.Tux;
+import cz.bakterio.discord.Tux.commands.Command;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
+import java.util.Objects;
 
-public class LinuxCommand extends Command {
+/**
+ * Testing command.
+ */
+public class SetupCommand extends Command {
     @Override
     public String getName() {
-        return "linux";
+        return "setup";
     }
 
     @Override
@@ -19,7 +25,7 @@ public class LinuxCommand extends Command {
 
     @Override
     public String getHelp() {
-        return "Return short text about GNU/Linux. :computer:";
+        return "Add server slash commands";
     }
 
     @Override
@@ -29,9 +35,5 @@ public class LinuxCommand extends Command {
 
     @Override
     public void invoke(MessageReceivedEvent e, String[] args) {
-        e.getChannel().sendMessage("Linux is a family of open-source Unix-like operating systems based on the Linux kernel," +
-                "an operating system kernel first released on September 17, 1991, by Linus Torvalds. " +
-                "Linux is typically packaged in a Linux distribution.").queue();
     }
-
 }

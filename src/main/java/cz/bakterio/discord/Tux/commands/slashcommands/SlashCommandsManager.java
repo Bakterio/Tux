@@ -1,9 +1,7 @@
 package cz.bakterio.discord.Tux.commands.slashcommands;
 
 import cz.bakterio.discord.Tux.Tux;
-import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 

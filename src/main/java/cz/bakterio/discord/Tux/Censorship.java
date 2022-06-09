@@ -6,11 +6,11 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*
+FOSS is about freedom, but we like censorship.
+TODO add logging :D
+ */
 public class Censorship {
-    /*
-    FOSS is about freedom, but we like censorship.
-    TODO add logging :D
-     */
     private final String[] args;
     public Censorship(net.dv8tion.jda.api.events.message.MessageReceivedEvent e) {
         args = e.getMessage().getContentRaw().split(" ");
