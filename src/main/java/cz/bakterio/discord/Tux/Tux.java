@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
@@ -22,6 +23,7 @@ public class Tux {
     public static boolean test;
 
     public static Guild testingServer;
+    public static User Bakterio;
 
     public static void main(String[] args) {
         test = (args.length >= 1) ? args[0].equalsIgnoreCase("test") : false;
@@ -39,6 +41,7 @@ public class Tux {
         }
 
         testingServer = Objects.requireNonNull(Tux.jda.getGuildById("831571722675027999"));
+        // Bakterio = Objects.requireNonNull(Tux.jda.getUserById("484281862068371467")); TODO null pointer exc
 
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);
 
@@ -49,6 +52,7 @@ public class Tux {
         jda.addEventListener(new BestOsListener());
         jda.addEventListener(new OcelotiJoinListener());
         jda.addEventListener(new SlashCommandsManager());
+        jda.addEventListener(new FeedbackModalListener());
 
         ActivitySwitcher.startSwitcher();
     }
