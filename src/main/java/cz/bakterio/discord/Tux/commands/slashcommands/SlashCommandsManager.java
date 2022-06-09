@@ -4,18 +4,16 @@ import cz.bakterio.discord.Tux.Tux;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.commands.OptionType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class SlashCommandsManager extends ListenerAdapter {
     private final ArrayList<SlashCommand> commands = new ArrayList<>();
     public SlashCommandsManager() {
-        guildSetup(Tux.testingServer);
-
         commands.add(new FeedbackCommand());
+        
+        guildSetup(Tux.testingServer);
     }
 
     @Override
@@ -34,6 +32,7 @@ public class SlashCommandsManager extends ListenerAdapter {
      */
     private void guildSetup(Guild g) {
        for (SlashCommand c : commands)  {
+           System.out.println("Command setup: " + c.getName());
            c.setup(g);
        }
     }
