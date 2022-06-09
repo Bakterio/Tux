@@ -2,11 +2,12 @@ package cz.bakterio.discord.Tux;
 
 import cz.bakterio.discord.Tux.commands.CommandsListener;
 import cz.bakterio.discord.Tux.commands.slashcommands.SlashCommandsManager;
-import cz.bakterio.discord.Tux.commands.slashcommands.WhoamiScommand;
+import cz.bakterio.discord.Tux.commands.slashcommands.TestingSlashCommand;
 import cz.bakterio.discord.Tux.listeners.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
@@ -21,6 +22,8 @@ public class Tux {
     public static Date startupDate = new Date();
     public static boolean test;
 
+    public static Guild testingServer;
+
     public static void main(String[] args) {
         test = (args.length >= 1) ? args[0].equalsIgnoreCase("test") : false;
         try {
@@ -28,13 +31,15 @@ public class Tux {
                     Config.getSecretValue("token"))
                     .enableCache(CacheFlag.VOICE_STATE)
                     .build()
-                    .awaitReady();
+                    .awaitReady(); // wait until the bot is ready, no more api errors :D
         } catch (LoginException e) {
             System.out.println("Login error, feels frustrating man");
             e.printStackTrace();
         } catch (Config.KeyNotFoundException | InterruptedException e) {
             e.printStackTrace();
         }
+
+        testingServer = Objects.requireNonNull(Tux.jda.getGuildById("831571722675027999"));
 
         jda.getPresence().setPresence(Activity.watching( "Linus's Linux challenge"), false);
 
@@ -44,7 +49,7 @@ public class Tux {
         jda.addEventListener(new ReadyListener());
         jda.addEventListener(new BestOsListener());
         jda.addEventListener(new OcelotiJoinListener());
-        jda.addEventListener(new WhoamiScommand());
+        jda.addEventListener(new TestingSlashCommand());
         jda.addEventListener(new SlashCommandsManager());
 
         ActivitySwitcher.startSwitcher();
